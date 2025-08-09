@@ -9,10 +9,6 @@ class StringManipulator:
         length = len(self.text)
         return length
 
-    def convert_uppercase(self, text):
-        uppercase = self.text.upper()
-        return uppercase
-
 name = StringManipulator("Example")
 
 index = name.find_character("x")
@@ -21,5 +17,5 @@ print(f"The index of the character: {index}")
 length = name.get_length(name)
 print(f"The length of the character: {length}")
 
-upper = name.convert_uppercase(name)
+upper = name.text.upper()
 print(f"The uppercase of the character: {upper}")
