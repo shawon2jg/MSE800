@@ -2,7 +2,7 @@ import numpy as np
 
 #region Task 01
 def convertNumpyArray(aList):
-    numpyArray = np.array(aList, dtype=float)
+    numpyArray = np.array2string(np.array(aList), separator=",")
     print(f"Convert List to NumPy Array: {numpyArray}")
 #endregion
 
@@ -42,6 +42,8 @@ def percentileRainfall(anArray):
 if __name__ == "__main__":
     rainfall = [0.0, 5.2, 3.1, 0.0, 12.4, 0.0, 7.5]
     convertNumpyArray(rainfall)
+
+
 
     rainfallArray = np.array(rainfall)
     totalRainfall(rainfallArray)
