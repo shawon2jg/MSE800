@@ -15,7 +15,7 @@ if __name__ == "__main__":
     word_count = 0
     given_file = "F:\Master of Software Engineering (Level 9)\Trimester 01\MSE800 Professional Software Engineering\Week 03\Class_05_16082025\demo_file.txt"
 
-    with open(given_file, "r", encoding="utf-8", errors="ignore") as givenfile:
+    with open(open(given_file, "r", encoding="utf-8", errors="ignore") as givenfile:
         for fileline in givenfile:
             word_count += len(fileline.split())
 
