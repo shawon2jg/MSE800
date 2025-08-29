@@ -6,6 +6,11 @@ class Person:
         self.address = address
         self.age = age
 
+class Student(Person):
+    def __init__(self, id, name, address, age, academic_record):
+        super().__init__(id, name, address, age)  # Call the parent class's constructor
+        self.academic_record = academic_record
+
 class Teacher(Person):
     def __init__(self, id, name, address, age, tax_code, salary):
         super().__init__(id, name, address, age)  # Call the parent class's constructor
