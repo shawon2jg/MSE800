@@ -1,4 +1,4 @@
-from MSE800.activityFourWeek05.Person import Person
+from MSE800.activityFiveWeek05.Person import Person
 
 class Student(Person):
     def __init__(self, name, address, age, student_id):
