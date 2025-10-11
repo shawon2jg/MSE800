@@ -10,13 +10,13 @@ The example module supplies one function, factorial().  For example,
 
 def factorial(n):
     """
-    This code includes:
-        (a)A module-level docstring that identifies the module and the primary function it contains, called factorial.
-        (b)A factorial function that calculates the factorial of a non-negative integer.
-        (c)Tests using the doctest module which use the docstring to verify that the function behaves correctly.
-        (d)A main block that will run the tests in the doctests module when the script is run directly.
+    The code includes:
+        (a) A docstring at the module level explaining the module and its main function, factorial.
+        (b) A factorial function that returns the factorial of a non-negative number.
+        (c) Docstring tests via the doctest module to verify the behavior of the function.
+        (d) A main block that executes the doctests when executed as a script.
 
-    The doctest module will look for test cases that are included in the docstring and will run them, reporting whether the output from the using code of the docstring matches the expected output.
+    The module doctest is utilized to execute the test cases in the docstrings, comparing the code's output with the desired output.
 
     Return the factorial of n, an exact integer >= 0
     >>> [factorial(n) for n in range(6)]
