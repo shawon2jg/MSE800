@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery - Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Image Gallery</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash success">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <a href="{{ url_for('upload_file') }}" class="upload-btn">📤 Upload New Image</a>
+
+        {% if images %}
+            <div class="gallery">
+                {% for image in images %}
+                <div class="image-card">
+                    <div class="filename">{{ image }}</div>
+                    <a href="{{ url_for('static', filename='uploads/' + image) }}" target="_blank">
+                        <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="{{ image }}">
+                    </a>
+                    <div class="actions">
+                        <a href="{{ url_for('static', filename='uploads/' + image) }}"
+                           class="btn btn-view" target="_blank">👁️ View</a>
+                        <a href="{{ url_for('download_file', filename=image) }}"
+                           class="btn btn-download">⬇️ Download</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-images">No images uploaded yet. <a href="{{ url_for('upload_file') }}">Upload one!</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>
