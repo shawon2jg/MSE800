@@ -1,0 +1,7 @@
+Short description of two Python files:-
+
+1.calculator.py -
+Implements a simple calculator with four functions: add, subtract, multiply, and divide. Each function performs a basic arithmetic operation, with the divide function including a check to prevent division by zero, raising a ValueError if attempted.
+
+2.testCalculator.py -
+Contains unit tests for the calculator functions using the pytest framework. It includes tests to verify that add(2, 3) returns 5, subtract(10, 5) returns 5, multiply(3, 4) returns 12, divide(10, 2) returns 5, and divide(10, 0) raises a ValueError with the message "Cannot divide by zero".
