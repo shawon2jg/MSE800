@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold mb-3">Itinerary for {{ itinerary.destination }}</h2>
+
+    <div class="mb-4">
+      <strong>Duration:</strong> {{ itinerary.duration_days }} days
+      {% if itinerary.dates and itinerary.dates.start %}
+        • <strong>Dates:</strong> {{ itinerary.dates.start }} to {{ itinerary.dates.end }}
+      {% endif %}
+      <br>
+      <strong>Budget:</strong> {{ itinerary.budget.level }} — {{ itinerary.budget.estimate }}
+    </div>
+
+    <div class="space-y-4">
+      {% for day in itinerary.itinerary %}
+        <div class="border rounded p-4">
+          <div class="flex items-center justify-between">
+            <div class="text-lg font-semibold">Day {{ day.day }} — {{ day.title }}</div>
+            <div class="text-sm text-slate-500">{{ day.estimated_cost }}</div>
+          </div>
+          <div class="mt-2 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div><strong>Morning</strong><div class="mt-1 text-sm">{{ day.morning }}</div></div>
+            <div><strong>Afternoon</strong><div class="mt-1 text-sm">{{ day.afternoon }}</div></div>
+            <div><strong>Evening</strong><div class="mt-1 text-sm">{{ day.evening }}</div></div>
+          </div>
+          <div class="mt-3 text-sm text-slate-600"><strong>Local tips:</strong> {{ day.local_tips }}</div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="mt-6">
+      <h3 class="font-semibold">Packing List</h3>
+      <ul class="list-disc list-inside">
+        {% for item in itinerary.packing_list %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="mt-6">
+      <h3 class="font-semibold">Travel Tips</h3>
+      <p class="text-sm text-slate-700">{{ itinerary.travel_tips }}</p>
+    </div>
+
+    <div class="mt-6">
+      <h3 class="font-semibold">Raw JSON (for debugging)</h3>
+      <pre class="bg-slate-100 p-3 rounded text-xs">{{ itinerary | tojson(indent=2) }}</pre>
+    </div>
+
+    <div class="mt-4">
+      <a class="text-indigo-600 hover:underline" href="{{ url_for('index') }}">Create another itinerary</a>
+    </div>
+  </div>
+{% endblock %}

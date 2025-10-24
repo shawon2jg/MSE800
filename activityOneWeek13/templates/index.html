@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="bg-white p-6 rounded shadow">
+    <h1 class="text-2xl font-bold mb-3">Plan your trip</h1>
+    <form method="post" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium">Destination</label>
+        <input name="destination" required class="w-full mt-1 p-2 border rounded" placeholder="e.g., Kyoto, Japan">
+      </div>
+
+      <div class="grid grid-cols-3 gap-3">
+        <div>
+          <label class="block text-sm font-medium">Days</label>
+          <input name="days" type="number" min="1" max="30" value="3" class="mt-1 p-2 border rounded">
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Start date (optional)</label>
+          <input name="start_date" type="date" class="mt-1 p-2 border rounded">
+        </div>
+        <div>
+          <label class="block text-sm font-medium">End date (optional)</label>
+          <input name="end_date" type="date" class="mt-1 p-2 border rounded">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-3">
+        <div>
+          <label class="block text-sm font-medium">Budget</label>
+          <select name="budget" class="mt-1 p-2 border rounded">
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Preferred currency (optional)</label>
+          <input name="currency" class="mt-1 p-2 border rounded" placeholder="e.g., USD, EUR">
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Interests (comma-separated)</label>
+          <input name="interests" class="mt-1 p-2 border rounded" placeholder="food, nature, history">
+        </div>
+      </div>
+
+      <div>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Generate Itinerary</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

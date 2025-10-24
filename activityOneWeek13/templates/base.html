@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Travel Planner</title>
+  <!-- Tailwind CDN for quick styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <nav class="bg-white shadow">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="font-semibold text-xl">AI Travel Planner</div>
+      <div class="text-sm text-slate-600">LLM-powered personalized itineraries</div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto p-6">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="space-y-2 mb-4">
+          {% for category, msg in messages %}
+            <div class="p-3 rounded {{ 'bg-red-100 text-red-800' if category=='error' else 'bg-yellow-100 text-yellow-800' if category=='warning' else 'bg-green-100 text-green-800' }}">{{ msg }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="text-center text-sm text-slate-500 py-6">
+    Built for demo — follow security best practices before deploying.
+  </footer>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
